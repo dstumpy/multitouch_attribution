@@ -1,0 +1,34 @@
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+known_third_party = ["matplotlib", "pandas", "seaborn"]
+line_length = 88
+force_grid_wrap = 0
+use_parentheses = "True"
+
+[tool.poetry]
+name = "multitouch_attribution"
+version = "0.1.0"
+description = "This is a playground to test and implement different marketing attribution models based on ML or algorithmic approaches."
+authors = ["Danny Stumpe <danny.stumpe@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "5.2"
+pandas = "^1.5.0"
+matplotlib = "^3.6.1"
+seaborn = "^0.12.0"
+
+[tool.poetry.dev-dependencies]
+black = "22.8.0"
+flake8 = "5.0.4"
+mypy = "0.790"
+pre-commit = "^2.20"
+pydocstyle = "5.1.1"
+jupyter = "1.0.0"
+
+[build-system]
+requires = ["poetry>= 1.1.4"]
+build-backend = "poetry.masonry.api"

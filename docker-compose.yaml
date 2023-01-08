@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+
+  # IDE in browser
+  ide:
+    build:
+      context: .
+      target: ide
+    image: multitouch_attribution_dev_image
+    container_name: multitouch_attribution_dev
+    ports:
+      - 8123:8123
+      - 8080:8080
+      - 40000:40000
+    volumes:
+      - .:/home/root/app
+      - pre-commit:/root/.cache/pre-commit
+      - poetry-cache:/root/.cache/pypoetry
+      - $HOME/.gitconfig:/root/.gitconfig
+      - $SSH_AUTH_SOCK:/tmp/authsock
+    environment:
+      SSH_AUTH_SOCK: /tmp/authsock
+    env_file:
+      - .env_dev
+    restart: unless-stopped
+    command: "code-server --auth none --bind-addr 0.0.0.0:8123 /home/root/app"
+    tty: true
+
+  prod:
+    build:
+      context: .
+      target: prod
+    image: multitouch_attribution_prod_image
+    container_name: multitouch_attribution_prod
+    command: /bin/bash
+    tty: true
+
+volumes:
+  vscode-extensions:
+  pre-commit:
+  poetry-cache:

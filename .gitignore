@@ -1,0 +1,11 @@
+# credentials
+credentials
+
+# ide
+.vscode
+
+# python
+__pycache__
+.mypy_cache
+*.pyc
+*.egg-info

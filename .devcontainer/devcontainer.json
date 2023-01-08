@@ -1,0 +1,45 @@
+// For details, see http://aka.ms/vscode-remote/devcontainer.json or the file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-docker-compose
+// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yaml.
+
+{
+    "name": "Existing Docker Compose (Extend)",
+
+    // The dockerComposeFile contains and overrdes container setting .
+    "dockerComposeFile": [
+        "../docker-compose.yaml",
+    ],
+
+    // Name for the container VSCode should use.
+    "service": "dev",
+
+    // Path VSCode starts every time the container is opened.
+    "workspaceFolder": "/home/root/app",
+
+    // Set container specific values similar to settings.json.
+    "settings": {
+        "terminal.integrated.shell.linux": null
+    },
+
+    // Add VSCode extensions that should be installed on container creation.
+    "extensions": [
+        "ms-python.python",
+        "njpwerner.autodocstring",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "mutantdino.resourcemonitor",
+        "ms-vsliveshare.vsliveshare",
+    ],
+
+    // Start container with settings specified in docker-compose.yaml
+    "runServices": ["dev"],
+
+    // Uncomment next line, if you want to keep the container running after VSCode shut down.
+    // "shutdownAction": "none",
+
+    // Uncomment next line to run the comment after the container is created.
+    // "postCreateCommand": "apt-get update && apt-get install -y git",
+
+    // Unncomment next line to connect as non root user.
+    // "remoteUser": "vscode",
+}
